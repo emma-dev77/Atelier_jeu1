@@ -21,9 +21,19 @@ void initialiserSabot() {
 
 void melangerSabot() {
     for (int i = CARTES - 1; i > 0; i--) {
-        
+        int j = rand() % (i+1);
+        int temp = sabot [i];
+        sabot [i] = sabot [j];
+        sabot [j] = temp;
+
     }
 }
 
-
+int tirercarte() {
+    if (position >= CARTES) {
+        printf ("\nSabot vide ! On le remélange...\n");
+        position = 0;
+        melangerSabot()
+    }
+}
 
