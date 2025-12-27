@@ -108,6 +108,37 @@ int main (){
             }
         }
 
-        
+        printf("\n=== Tour de la banque ===\n");
+        while (calculerScore(banque, nbB) < 17) {
+            banque[nbB++] = tirerCarte();
+        }
+
+        int scoreJ = calculerScore (joueur, nbJ);
+        int scoreB = calculerScore (banque, nbB);
+
+        printf("---------------------------------------------\n");
+        printf("Votre score final : %d\n", scoreJ);
+        printf("Score final de la banque: %d\n", scoreB);
+
+        if (scoreB > 21)
+        print ("\n La banque dépasse 21 ! Vous gagnez !\n");
+
+        else if (scoreJ > scoreB)
+        printf ("\n Vous gagnez !\n");
+
+        else if (scoreJ < scoreB)
+        printf ("\n Vous perdez...\n");
+
+        else 
+        printf ("\n Egalité.\n");
+
+        fin_partie:
+        printf ("---------------------------------------------\n");
+        printf ("Voulez-vous rejouer ? (O/N)");
+        scanf(" %c", &rejouer);
+
     }
+
+    printf("\n Merci d'avoir joué au Blackjack !\n");
+    return 0;
 }
