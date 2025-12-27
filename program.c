@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define JEUX 6
 #define CARTES 52 * JEUX
@@ -74,10 +75,10 @@ int main (){
     initialiserSabot();
     melangerSabot();
 
-    char rejouer = '0';
+    char rejouer = 'O';
     afficherRègles();
 
-    while (rejouer == '0') {
+    while (rejouer == 'O' || rejouer == 'o') {
         int joueur[10], banque [10];
         int nbJ = 0, nbB = 0;
         char choix;
@@ -115,7 +116,7 @@ int main (){
 
         printf("\n=== Tour de la banque ===\n");
         while (calculerScore(banque, nbB) < 17) {
-            banque[nbB++] = tirerCarte();
+            banque[nbB++] = tirercarte();
         }
 
         int scoreJ = calculerScore (joueur, nbJ);
@@ -126,7 +127,7 @@ int main (){
         printf("Score final de la banque: %d\n", scoreB);
 
         if (scoreB > 21)
-        print ("\n La banque dépasse 21 ! Vous gagnez !\n");
+        printf ("\n La banque dépasse 21 ! Vous gagnez !\n");
 
         else if (scoreJ > scoreB)
         printf ("\n Vous gagnez !\n");
