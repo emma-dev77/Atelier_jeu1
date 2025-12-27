@@ -33,9 +33,14 @@ int tirercarte() {
     if (position >= CARTES) {
         printf ("\nSabot vide ! On le remélange...\n");
         position = 0;
-        melangerSabot()
+        melangerSabot();
     }
     return sabot [position++];
+}
+
+int valeurCarte (int val) {
+    if (val > 10) return 10;
+    return val;
 }
 
 int calculerScore (int cartes [], int nb) {
@@ -77,10 +82,10 @@ int main (){
         int nbJ = 0, nbB = 0;
         char choix;
 
-        joueur [nbJ++] = tirerCarte();
-        joueur [nbJ++] = tirerCarte();
-        banque [nbB++] = tirerCarte();
-        banque [nbB++] = tirerCarte();
+        joueur [nbJ++] = tirercarte();
+        joueur [nbJ++] = tirercarte();
+        banque [nbB++] = tirercarte();
+        banque [nbB++] = tirercarte();
 
         printf("---------------------------------------------\n");
         printf("Score de la banque : %d\n", valeurCarte(banque[0]));
@@ -97,7 +102,7 @@ int main (){
             scanf("%c", &choix);
 
             if (choix == 'T'|| choix == 't') {
-                joueur [nbJ++] = tirerCarte(); 
+                joueur [nbJ++] = tirercarte(); 
                 printf("Votre nouveau score ; %d\n", calculerScore(joueur, nbJ));
             }
             else if (choix == 'R' || choix == 'r') { 
